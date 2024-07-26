@@ -37,12 +37,12 @@ frontend damour-backend-http
         bind *:80
         mode http
 	http-request set-header X-Forwarded-Proto http
-        default_backend oreste-backend
+        default_backend damour-backend
 
 frontend damour-backend-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.abizeraoreste.tech.pem
+	bind *:443 ssl crt /etc/haproxy/certs/www.damour.tech.pem
 	http-request set-header X-Forwarded-Proto https
-	default_backend oreste-backend
+	default_backend damour-backend
 
 backend damour-backend
         balance roundrobin
